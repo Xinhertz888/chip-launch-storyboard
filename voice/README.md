@@ -27,12 +27,24 @@ cp voice/.env.example voice/.env   # 然后填 key
 
 ### 2. 上传你的声音，生成专属音色（只需一次）
 
-把 1~3 段参考音频放进 `voice/reference/`（要求见该目录 README），然后：
+`voice/reference/` 已有 6 段基准配音（2026-10-18 入库，ADC34DSO75 第一期分镜配音稿）：
+
+| 文件 | 时长 | 内容 |
+|---|---|---|
+| sample1.mp3 | 5.7s | 固定开场白：芯品发布会，一分钟带你看懂最新芯片…… |
+| sample2.mp3 | 9.5s | 芯片参数介绍段 |
+| sample3.mp3 | 10.7s | 痛点段（AI 数据中心电压毛刺） |
+| sample4.mp3 | 9.8s | 方案段（事件检测＋存储做进片子里） |
+| sample5.mp3 | 4.4s | 应用场景段 |
+| sample6.mp3 | 4.4s | 收束＋关注 |
+
+每段配有同名 `.txt`（文字稿取自分镜脚本配音稿原文，已请用户校对）。
+**克隆推荐用 sample3**（10.7 秒，语气最完整）。
 
 ```bash
 cd voice
-python dub.py upload-voice --audio reference/sample1.mp3 \
-    --text "$(cat reference/sample1.txt)" --name xinpin-voice
+python dub.py upload-voice --audio reference/sample3.mp3 \
+    --text "$(cat reference/sample3.txt)" --name xinpin-voice
 ```
 
 把输出的 URI（形如 `speech:xxx`）写进 `.env` 的 `XINPIN_VOICE_URI`。
