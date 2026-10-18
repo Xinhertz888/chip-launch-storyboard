@@ -49,6 +49,8 @@ def main():
     ap.add_argument("--segs", required=True, help="分段配音目录（seg1.mp3、seg2.mp3 …）")
     ap.add_argument("--script", required=True, help="配音稿 txt（每行一段）")
     ap.add_argument("--out", required=True, help="输出目录（manifest.json 写到这里）")
+    ap.add_argument("--strict", action="store_true",
+                    help="有警告时返回非 0（供自动化流程卡住）")
     args = ap.parse_args()
 
     for cmd in ("ffprobe",):
@@ -104,6 +106,8 @@ def main():
         print("\n⚠ 发现问题：")
         for w in warns:
             print("  -", w)
+        if args.strict:
+            sys.exit(1)
     else:
         print("全部通过 ✅")
 
