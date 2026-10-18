@@ -1,0 +1,5 @@
+name: chip-launch-storyboard
+title: 芯品发布会 · 芯片新品分镜脚本
+description: 抖音账号「芯品发布会」的芯片新品视频工作流：用户给芯片型号，查资料核验参数，只交付 45–60 秒竖版分镜脚本（含中文配音稿与字幕时间轴）。
+category: Content creation
+include_in_prompt: true
