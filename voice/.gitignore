@@ -1,6 +1,3 @@
 .env
 out/
-reference/*.mp3
-reference/*.wav
-reference/*.m4a
 __pycache__/
